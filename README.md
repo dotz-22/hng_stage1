@@ -23,7 +23,7 @@ GET /classify-number/?number=<integer>
 
 Example Request:
 
-GET https://your-app-name.onrender.com/classify-number/?number=371
+GET https://hng-stage1-fdsh.onrender.com/classify-number/?number=371
 
 Example Response (200 OK)
  ```bash
