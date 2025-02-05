@@ -27,7 +27,7 @@ SECRET_KEY = config('SECRET_KEY')
 
 DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['hng-stage1-fdsh.onrender.com']
 
 
 # Application definition
@@ -61,11 +61,11 @@ MIDDLEWARE = [
 
 
 CORS_ALLOWED_ORIGINS = [
-    # "https://yourfrontend.com",  # Replace with the actual frontend domain CORS allowed origins
+    "https://hng-stage1-fdsh.onrender.com",  # Replace with the actual frontend domain CORS allowed origins
     "http://127.0.0.1:8000",     
 ]
 
-# CORS_ALLOW_CREDENTIALS = True
+CORS_ALLOW_CREDENTIALS = True
 
 ROOT_URLCONF = 'classifyproject.urls'
 
@@ -139,3 +139,25 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'file': {
+            'level': 'ERROR',
+            'class': 'logging.FileHandler',
+            'filename': os.path.join(BASE_DIR, 'django_errors.log'),
+        },
+        'console': {
+            'class': 'logging.StreamHandler',
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['file', 'console'],
+            'level': 'ERROR',
+            'propagate': True,
+        },
+    },
+}
